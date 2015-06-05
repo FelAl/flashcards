@@ -1,0 +1,15 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: mkdevdevelopment
+  pool: 5
+  username: mkdevflash
+  password: 111111
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: mkdevtest
+  pool: 5
+  username: mkdevflash
+  password: 111111
