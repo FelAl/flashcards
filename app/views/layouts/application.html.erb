@@ -1,25 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-		<meta charset="utf-8">
-		<title>Флэшкарточкер</title>
-		<meta name="generator" content="Bootply" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<link rel="stylesheet" href="<%= asset_path('unzipped_application.css') %>">
-    <link href="<%=asset_path('bootstrap.min.css')%>" rel="stylesheet">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Флэшкарточкер</title>
+    <meta name="generator" content="Bootply" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="<%= asset_path('unzipped_application.css') %>">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
     
-		<!--[if lt IE 9]>
-			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
-		<link href="<%=asset_path('google_styles.css') %>" rel="stylesheet">
-	</head>
-	<body>
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link href="<%=asset_path('google_styles.css') %>" rel="stylesheet">
+  </head>
+  <body>
 <nav class="navbar navbar-fixed-top header">
- 	<div class="col-md-12">
+  <div class="col-md-12">
     <div class="navbar-header">
       <a href="#" class="navbar-brand">Bootstrap</a>
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse1">
@@ -50,8 +49,8 @@
         <li><a href="#" id="btnToggle"><i class="glyphicon glyphicon-th-large"></i></a></li>
         <li><a href="#"><i class="glyphicon glyphicon-user"></i></a></li>
       </ul>
-    </div>	
-  </div>	
+    </div>  
+  </div>  
 </nav>
 <div class="navbar navbar-default" id="subnav">
   <div class="col-md-12">
@@ -78,8 +77,8 @@
         <li><a href="#loginModal" role="button" data-toggle="modal">Войти</a></li>
         <li><a href="#aboutModal" role="button" data-toggle="modal">О нас</a></li>
       </ul>
-    </div>	
-  </div>	
+    </div>  
+  </div>  
 </div>
 
 <!--main-->
@@ -92,14 +91,14 @@
         <%= yield %>
 
         </div>
-   			<div class="panel-body">
+        <div class="panel-body">
           <div class="list-group">
             <a href="#" class="list-group-item">Почему мы?</a>
             <a href="#" class="list-group-item">Преимущества</a>
             <a href="#" class="list-group-item">Отзывы</a>
           </div>
         </div>
- 		  </div>
+      </div>
       <div class="well"> 
         <form class="form-horizontal" role="form">
          <h4>Добавить карточку </h4>
@@ -109,8 +108,8 @@
           <button class="btn btn-success pull-right" type="button">Создать</button><ul class="list-inline"><li><a href="#"><i class="glyphicon glyphicon-align-left"></i></a></li><li><a href="#"><i class="glyphicon glyphicon-align-center"></i></a></li><li><a href="#"><i class="glyphicon glyphicon-align-right"></i></a></li></ul>
         </form>
       </div>
-	  </div>
-  	<div class="col-md-4 col-sm-6">
+    </div>
+    <div class="col-md-4 col-sm-6">
       <div class="well"> 
         <form class="form">
           <h4>Быстрая регистрация</h4>
@@ -120,31 +119,31 @@
           </div>
         </form>
       </div>
-  	  <div class="panel panel-default">
+      <div class="panel panel-default">
         <div class="panel-heading"><a href="#" class="pull-right">Посмотреть всё</a> <h4>Пример карточки</h4></div>
-  		  <div class="panel-body">
+        <div class="panel-body">
           <p><img src="//placehold.it/150x150" class="img-circle pull- right"> <a href="#">Картинка</a></p>
           <div class="clearfix"></div>
           <hr>
             Название
         </div>
       </div>
-  	</div>
-  	<div class="col-md-4 col-sm-6">
+    </div>
+    <div class="col-md-4 col-sm-6">
       <div class="panel panel-default">
         <div class="panel-heading"><a href="#" class="pull-right"> Посмотреть все</a> <h4><a href="#"><h4>Все карточки</h4></a></h4></div>
-    		<div class="panel-body">
+        <div class="panel-body">
           <ul class="list-group">
             <li class="list-group-item">Первая карточка</li>
             <li class="list-group-item">Вторая карточка</li>
             <li class="list-group-item">Третья карточка</li>
           </ul>
         </div>
-     	</div>
+      </div>
       <div class="panel panel-default">
         <div class="panel-heading"><a href="#" class="pull-right">Посмотреть всё</a> <h4>Шаблон</h4>
         </div>
-  			<div class="panel-body">
+        <div class="panel-body">
           <img src="//placehold.it/150x150" class="img-circle pull-right"> <a href="#">Keyword: Bootstrap</a>
           <div class="clearfix"></div>
           <hr>
@@ -157,7 +156,7 @@
               </div>
               <input type="text" class="form-control" placeholder="Add a comment..">
             </div>
-      	  </form>
+          </form>
         </div>
        </div>
     </div>
@@ -198,7 +197,7 @@
     <div class="modal-footer">
       <div class="col-md-12">
         <button class="btn" data-dismiss="modal" aria-hidden="true">Отмена</button>
-		  </div>	
+      </div>  
     </div>
   </div>
 </div>
@@ -225,8 +224,5 @@
     </div>
   </div>
 </div>
-    <script src="<%= asset_path('jquery202.min.js') %>"></script>
-		<script src="<%= asset_path('bootstrap.min.js') %>"></script>
-		<script src="<%= asset_path('google_scripts.js') %>"></script>
-	</body>
+</body>
 </html>

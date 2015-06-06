@@ -1,6 +1,5 @@
-class MainController < ActionController::Base
-  layout "application" # ??? вроде бы и без этого должно работать, 
-                       #     но где-то накосячил я наверное
+class MainController < ApplicationController
+                       
   def index
   end
 end
