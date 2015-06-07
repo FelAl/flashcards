@@ -7,7 +7,7 @@ class CardsController < ApplicationController
     card = Card.new(cards_params)
     card['review_date'] = Date.today
     card.save
-    render "main/index"
+    redirect_to root_path
   end
 
   private

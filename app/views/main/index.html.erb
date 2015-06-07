@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-md-4 col-sm-6">
       <div class="panel panel-default">
-        <div class="panel-heading">
+        <div class="panel-heading"><a href="#" class="pull-right">Посмотреть всё</a> 
           <h4>F.A.Q.</h4>
           <section>
             <p>
@@ -19,38 +19,37 @@
           </div>
         </div>
       </div>
-      <div class="well"> 
-        <form class="form-horizontal" accept-charset="UTF-8" role="form" method="post" action="/cards"  name='card' >
-         <h4>Добавить карточку </h4>
-          <div class="form-group" style="padding:14px;">
-            <input class="form-control" placeholder="input" name="card[original_text]" >
-            <input class="form-control" placeholder="input" name="card[translated_text]" >
-            <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
-          </div>
-          <button class="btn btn-success pull-right" type="submit">Создать</button>
-          <ul class="list-inline">
-            <li>
-              <a href="#">
-                <i class="glyphicon glyphicon-align-left"></i>
-              </a>
-              </li>
-            <li>
-              <a href="#">
-                <i class="glyphicon glyphicon-align-center"></i>
-              </a>
+      <div class="well">
+      <%= form_for @card, html: {class: "form-horizontal"} do |f| %>
+        <h4>Добавить карточку </h4>
+        <div class="form-group">
+          <%= f.text_field :original_text,   class: "form-control" %>
+          <%= f.text_field :translated_text, class: "form-control" %>
+        </div>
+        <%= f.submit "Создать", class: "btn btn-success pull-right" %>
+        <ul class="list-inline">
+          <li>
+            <a href="#">
+              <i class="glyphicon glyphicon-align-left"></i>
+            </a>
             </li>
-            <li>
-              <a href="#">
-                <i class="glyphicon glyphicon-align-right"></i>
-              </a>
-            </li>
-          </ul>
-        </form>
+          <li>
+            <a href="#">
+              <i class="glyphicon glyphicon-align-center"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="glyphicon glyphicon-align-right"></i>
+            </a>
+          </li>
+        </ul>
+      <% end %>
       </div>
     </div>
     <div class="col-md-4 col-sm-6">
       <div class="panel panel-default">
-        <div class="panel-heading">
+        <div class="panel-heading"><a href="#" class="pull-right">Посмотреть всё</a> 
           <h4>Пример карточки</h4>
         </div>
         <div class="panel-body">
