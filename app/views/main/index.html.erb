@@ -25,7 +25,7 @@
           <div class="form-group" style="padding:14px;">
             <input class="form-control" placeholder="input" name="card[original_text]" >
             <input class="form-control" placeholder="input" name="card[translated_text]" >
-
+            <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
           </div>
           <button class="btn btn-success pull-right" type="submit">Создать</button>
           <ul class="list-inline">
