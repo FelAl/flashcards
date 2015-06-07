@@ -5,7 +5,6 @@ class CardsController < ApplicationController
 
   def create
     card = Card.new(cards_params)
-    card['review_date'] = Date.today
     card.save
     redirect_to root_path
   end
