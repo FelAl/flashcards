@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-md-4 col-sm-6">
       <div class="panel panel-default">
-        <div class="panel-heading"><a href="#" class="pull-right">Посмотреть всё</a> 
+        <div class="panel-heading">
           <h4>F.A.Q.</h4>
           <section>
             <p>
@@ -20,11 +20,11 @@
         </div>
       </div>
       <div class="well"> 
-        <form class="form-horizontal" accept-charset="UTF-8" role="form" method="post" action="/cards" >
+        <form class="form-horizontal" accept-charset="UTF-8" role="form" method="post" action="/cards"  name='card' >
          <h4>Добавить карточку </h4>
           <div class="form-group" style="padding:14px;">
-            <input class="form-control" placeholder="input" name="original_text" >
-            <input class="form-control" placeholder="input" name="translated_text" >
+            <input class="form-control" placeholder="input" name="card[original_text]" >
+            <input class="form-control" placeholder="input" name="card[translated_text]" >
 
           </div>
           <button class="btn btn-success pull-right" type="submit">Создать</button>
@@ -50,7 +50,7 @@
     </div>
     <div class="col-md-4 col-sm-6">
       <div class="panel panel-default">
-        <div class="panel-heading"><a href="#" class="pull-right">Посмотреть всё</a> 
+        <div class="panel-heading">
           <h4>Пример карточки</h4>
         </div>
         <div class="panel-body">

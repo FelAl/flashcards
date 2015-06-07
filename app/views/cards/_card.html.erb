@@ -1,16 +1,18 @@
-<div class="panel panel-default">
-  <div class="panel-heading"><a href="#" class="pull-right">Посмотреть всё</a> 
-    <h4><%= card.original_text %></h4>
-  </div>
+<div class="col-md-4 col-sm-6">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4><%= card.original_text %></h4>
+    </div>
 
-  <div class="panel-body">
-    <p>
-      <img src="//placehold.it/150x150" class="img-circle pull- right"> <a href="#">Картинка</a>
-    </p>
-    <div class="clearfix"></div>
-    <hr>
-      <%= card.translated_text %>
-    <hr>
-      <%= card.review_date.strftime('%D') %>
+    <div class="panel-body">
+      <p>
+        <img src="//placehold.it/150x150" class="img-circle pull- right"> <a href="#">Картинка</a>
+      </p>
+      <div class="clearfix"></div>
+      <hr>
+        <%= card.translated_text %>
+      <hr>
+        <%= card.review_date.strftime('%D') %>
+    </div>
   </div>
 </div>
