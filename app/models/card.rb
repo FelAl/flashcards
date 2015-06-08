@@ -12,7 +12,7 @@ class Card < ActiveRecord::Base
 
   def check_duplication
     if original_text.downcase == translated_text.downcase
-      errors.add(:duplication, 'Значения полей дублируют друг друга.') 
+      errors.add(:duplication, "Значения полей дублируют друг друга.") 
     end
   end
 
