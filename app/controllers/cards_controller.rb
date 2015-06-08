@@ -5,8 +5,12 @@ class CardsController < ApplicationController
 
   def create
     card = Card.new(cards_params)
-    card.save
-    redirect_to root_path
+    if card.save
+      redirect_to root_path
+    else
+      flash[:notice] = "Запись не может быть сохранена"
+      redirect_to root_path
+    end  
   end
 
   private
