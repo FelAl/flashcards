@@ -2,6 +2,7 @@ class Card < ActiveRecord::Base
 
   validates :original_text,   presence: true
   validates :translated_text, presence: true
+  validates :review_date,     presence: true
   validate  :check_duplication
 
 
@@ -10,7 +11,7 @@ class Card < ActiveRecord::Base
   end
 
   def check_duplication
-    if original_text == translated_text
+    if original_text.downcase == translated_text.downcase
       errors.add(:duplication, 'Значения полей дублируют друг друга.') 
     end
   end
