@@ -1,21 +1,9 @@
 <div class="container" id="main">
   <div class="row">
     <div class="col-md-4 col-sm-6">
-      <div class="well">
-      <%= form_for @card, html: {class: "form-horizontal"} do |f| %>
-        <h4>Редактировать </h4>
-        <div class="form-group">
-          <%= f.text_field :original_text,   class: "form-control" %>
-          <%= f.text_field :translated_text, class: "form-control" %>
-        </div>
-        <%= f.submit "Изменить", class: "btn btn-success pull-right" %>
-        <ul class="list-inline">
-          <li>
-            <i class="glyphicon glyphicon-align-left"></i>
-          </li>
-        </ul>
-      <% end %>
-      </div>
+
+      <%= render "cards/edit_or_new" %>
+      
     </div>
   </div>
 </div>
