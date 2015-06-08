@@ -1,6 +1,6 @@
 <div class="well">
   <%= form_for @card, html: {class: "form-horizontal"} do |f| %>
-    <h4> <%= @card.new_record? ? "Добавить карточку" : "Редактировать"%> </h4>
+    <!-- <h4> <%= @card.new_record? ? "Добавить карточку" : "Редактировать"%> </h4> -->
     <p>
       <% if flash[:notice] %>
         <%= flash[:notice] %>
