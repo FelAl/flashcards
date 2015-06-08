@@ -5,7 +5,6 @@ class Card < ActiveRecord::Base
   validates :review_date,     presence: true
   validate  :check_duplication
 
-
   before_create do
     set_default_date
   end
