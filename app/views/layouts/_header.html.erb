@@ -1,10 +1,7 @@
 <nav class="navbar navbar-fixed-top header">
   <div class="col-md-12">
     <div class="navbar-header">
-      <a href="#" class="navbar-brand">Bootstrap</a>
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse1">
-        <i class="glyphicon glyphicon-search"></i>
-      </button>
+      <%= link_to "Flash Cards", root_path, class: "navbar-brand" %>
     </div>
     <div class="collapse navbar-collapse" id="navbar-collapse1">
       <form class="navbar-form pull-left" method="get" action="/search" accept-charset="UTF-8">
@@ -25,7 +22,7 @@
     <div class="collapse navbar-collapse" id="navbar-collapse2">
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <a href="<%= cards_path %>">Карточки</a>
+          <%= link_to "Карточки", cards_path %>
         </li>
       </ul>
     </div>  

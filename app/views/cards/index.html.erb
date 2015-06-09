@@ -1,37 +1,8 @@
 <div class="container" id="main">
   <div class="row">
-    <% length = @cards.length %>
-    <% cards_in_column = length / 3 %>
-    <% if cards_in_column > 0 %>
-      <% first_index_for_first_column    = 0 %>
-      <% second_index_for_first_column   = cards_in_column -1 %>
-      <% first_index_for_second_column   = cards_in_column %>
-      <% second_index_for_second_column  = 2 * cards_in_column - 1 %>
-      <% first_index_for_third_column    = 2 * cards_in_column %>
-      <% second_index_for_third_column   = 3 * cards_in_column -1 %>
-    <% end %>
-    <div class="col-md-4 col-sm-6">
-      <% @cards[first_index_for_first_column..second_index_for_first_column].each do |card| %>
-        <%= render 'cards/card', card: card %>
-      <% end %>
-    </div>
-    <% if length == 2 %>
-      <% second_index_for_first_column   = 0 %>
-      <% first_index_for_second_column   = 1 %>
-      <% second_index_for_second_column  = 1 %>
-    <% end %>
-    <div class="col-md-4 col-sm-6">
-      <% @cards[first_index_for_second_column..second_index_for_second_column].each do |card| %>
-        <%= render 'cards/card', card: card %>
-      <% end %>
-    </div>
-    <% if !(cards_in_column == 0) %>
-      <div class="col-md-4 col-sm-6">
-        <% @cards[first_index_for_third_column..second_index_for_third_column].each do |card| %>
-          <%= render 'cards/card', card: card %>
-        <% end %>
-      </div>
-    <% end %>
-  </div><!--/row-->
+
+    <%= render @cards %>
+
+  </div>
   <hr>
 </div>
