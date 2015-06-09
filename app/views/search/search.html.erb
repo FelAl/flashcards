@@ -1,4 +1,7 @@
-
-<% @cards.each do |card| %>
-  <%= render "cards/card", card: card %>
-<% end %>
+<div class="container" id="main">
+  <div class="row">
+    <% @cards.each do |card| %>
+      <%= render "cards/card", card: card %>
+    <% end %>
+  </div>
+</div>
