@@ -6,7 +6,9 @@ class Card < ActiveRecord::Base
   before_create :set_default_date
 
   def check_duplication
-    if original_text.mb_chars.downcase.to_s == translated_text.mb_chars.downcase.to_s
+    downcase_original_text   = original_text.mb_chars.downcase.to_s
+    downcase_translated_text = translated_text.mb_chars.downcase.to_s
+    if downcase_original_text == downcase_translated_text
       errors.add(:duplication, "Значения полей дублируют друг друга.") 
     end
   end
