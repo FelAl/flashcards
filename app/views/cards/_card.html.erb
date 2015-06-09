@@ -1,9 +1,10 @@
 <div class="col-md-4 col-sm-6">
   <div class="panel panel-default">
     <div class="panel-heading">
+      <%= link_to "Удалить", card_path(card), method: "delete", data: {confirm: "Уверены ?"}, class: "pull-right" %>
+      <%= link_to "Редактировать", edit_card_path(card),  class: "pull-right edit"  %>
       <h4><%= card.original_text %></h4>
     </div>
-
     <div class="panel-body">
       <p>
         <img src="//placehold.it/150x150" class="img-circle pull- right">

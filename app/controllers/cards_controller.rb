@@ -1,6 +1,19 @@
 class CardsController < ApplicationController
+  before_action :find_card, only: [:edit, :update, :destroy]
+
   def index
     @cards = Card.all
+  end
+
+  def edit
+  end
+
+  def update
+    if @card.update(cards_params)
+      redirect_to cards_path
+    else
+      render "edit"
+    end
   end
 
   def create
@@ -11,6 +24,15 @@ class CardsController < ApplicationController
       flash[:notice] = "Запись не может быть сохранена"
       redirect_to root_path
     end  
+  end
+
+  def destroy
+    @card.destroy
+    redirect_to :back
+  end
+
+  def find_card
+    @card = Card.find(params[:id])
   end
 
   private
