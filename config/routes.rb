@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
   root to: "main#index"
   resources :cards, only: [:index, :create]
+  get 'search', to: 'search#search'
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 

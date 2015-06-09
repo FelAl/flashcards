@@ -11,6 +11,10 @@
     <hr>
       <%= card.translated_text %>
     <hr>
-      <%= card.review_date.strftime('%D') %>
+      <% if (card.class == Elasticsearch::Model::Response::Result) %>
+        <%= card.review_date %>
+      <% else %>
+        <%= card.review_date.strftime('%D') %>
+      <% end %>
   </div>
 </div>
