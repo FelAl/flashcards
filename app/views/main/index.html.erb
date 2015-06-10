@@ -1,24 +1,29 @@
 <!--main-->
 <div class="container" id="main">
   <div class="row">
-    <div class="col-md-4 col-sm-6">
-      <div class="panel panel-default">
-        <div class="panel-heading"> 
-          <h4>Просто текст</h4>
-          <section>
-            <p>
-              Первый в мире удобный менеджер флеш-карточек. Именно так.
-            </p>
-
-          </section>
+    <% if !(params[:controller] == "reviews") %>
+      <div class="col-md-4 col-sm-6">
+        <div class="panel panel-default">
+          <div class="panel-heading"> 
+            <h4>Главная</h4>
+            <section>
+              <p>
+                Первый в мире удобный менеджер флеш-карточек. Именно так.
+              </p>
+            </section>
+          </div>
         </div>
       </div>
-    </div>
+    <% end %>
     <div class="col-md-4 col-sm-6">
       <div class="well">
+        <% if params[:controller] == "reviews" %>
 
-        <%= render  "cards/train_form"%>
+          <%= render  "cards/train_form", card: @card%>
 
+        <% else %>
+          <h4>На <%= link_to "тренировку", new_training_path %>  </h4>  
+        <% end %>
       </div>
     </div>
   </div><!--/row-->

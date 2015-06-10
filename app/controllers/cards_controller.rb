@@ -12,6 +12,7 @@ class CardsController < ApplicationController
     if @card.update(cards_params)
       redirect_to cards_path
     else
+      flash[:notice] = "Запись не может быть сохранена"
       render "edit"
     end
   end

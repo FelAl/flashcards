@@ -16,4 +16,13 @@ class Card < ActiveRecord::Base
   def set_default_date
     self.review_date = Date.today + 3.days
   end
+
+  def compare_translations(submitted_text)
+   if self.translated_text.mb_chars.downcase.to_s == submitted_text.mb_chars.downcase.to_s
+    self.update_attribute(:review_date, (Date.today + 3.days))
+    return true
+   else
+    return false
+   end
+  end
 end

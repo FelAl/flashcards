@@ -1,9 +1,4 @@
-<%= form_for @card, html: {class: "form-horizontal"} do |f| %>
-  <p>
-    <% if flash[:notice] %>
-      <%= flash[:notice] %>
-    <% end %>
-  </p>
+<%= form_for card, html: {class: "form-horizontal"} do |f| %>
   <div class="form-group">
     <%= f.text_field :original_text,   class: "form-control" %>
   </div>

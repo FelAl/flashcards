@@ -5,22 +5,14 @@
     </p>
   </div>
 <% else %>
-  <%= form_for @card, url: root_path, method: "Post", html: {class: "form-horizontal"} do |f| %>
-    <% if (params[:controller] == "main") %>
+  <%= form_for card, url: check_card_path, method: "Post", html: {class: "form-horizontal"} do |f| %>
       <h4>  Проверка </h4>
-    <% end %>
-    <p>
-      <% if flash[:notice] %>
-        <%= flash[:notice] %>
-      <% end %>
-    </p>
-    <% if (params[:controller] == "main") %>
       <div class="form-group">
         <div class="form-control">
-          <%= @card.original_text %>
+          <%= card.original_text %>
         </div>
       </div>
-    <% end %>
+
     <input name="card[card_id]" type="hidden" value="<%= @card.id %>" />
     <div class="form-group">
       <%= f.text_field :translated_text, class: "form-control", placeholder: "Введите перевод", value: "" %>

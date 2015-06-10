@@ -4,9 +4,10 @@ Rails.application.routes.draw do
   root to: "main#index"
   post "/", to: "main#check"
   resources :cards, except: [:new]
+  get "new_training", to: "reviews#new_training"
+  post "check_card",  to: "reviews#check_card"
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
