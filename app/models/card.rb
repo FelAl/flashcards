@@ -1,4 +1,9 @@
 class Card < ActiveRecord::Base
+  # scope :unviewed, -> {find_by_sql "SELECT * FROM cards WHERE review_date <= '2015-06-12'"} 
+  scope :unviewed, -> {find_by_sql "SELECT * FROM cards WHERE review_date <= (CURRENT_DATE - integer '3') ORDER BY random()"} 
+
+
+
 
   validates :original_text, :translated_text, :review_date,   presence: true
   validate  :check_duplication

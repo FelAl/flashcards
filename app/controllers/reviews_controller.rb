@@ -1,14 +1,11 @@
 class ReviewsController < ApplicationController
 
   def new_training
-    last_review_date = Date.today - 3.days
-    # last_review_date = 1.year.ago
-    start = 1.year.ago
-    @cards_for_learning = Card.where(review_date: start..last_review_date )
+    @cards_for_learning = Card.unviewed
     if @cards_for_learning.empty?
       flash[:no_cards] = "Нет карточек, приходите через день или добавьте новых"
     else
-    @card = @cards_for_learning.sample
+      @card = @cards_for_learning.sample
     end
     render "main/index"
   end
