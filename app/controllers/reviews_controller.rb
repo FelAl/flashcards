@@ -1,5 +1,4 @@
 class ReviewsController < ApplicationController
-
   def new_training
     @cards_for_learning = Card.unviewed
     if @cards_for_learning.empty?
@@ -25,5 +24,4 @@ class ReviewsController < ApplicationController
   def cards_params
     params.require(:card).permit(:card_id, :translated_text)
   end  
-
 end

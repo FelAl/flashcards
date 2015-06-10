@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   root to: "main#index"
-  post "/", to: "main#check"
   resources :cards, except: [:new]
   get "new_training", to: "reviews#new_training"
   post "check_card",  to: "reviews#check_card"

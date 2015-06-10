@@ -1,9 +1,6 @@
 class Card < ActiveRecord::Base
-  # scope :unviewed, -> {find_by_sql "SELECT * FROM cards WHERE review_date <= '2015-06-12'"} 
-  scope :unviewed, -> {find_by_sql "SELECT * FROM cards WHERE review_date <= (CURRENT_DATE - integer '3') ORDER BY random()"} 
-
-
-
+  scope :unviewed, -> {find_by_sql "SELECT * FROM cards WHERE review_date <=\
+    (CURRENT_DATE - integer '3') ORDER BY random()"} 
 
   validates :original_text, :translated_text, :review_date,   presence: true
   validate  :check_duplication
@@ -23,11 +20,13 @@ class Card < ActiveRecord::Base
   end
 
   def compare_translations(submitted_text)
-   if self.translated_text.mb_chars.downcase.to_s == submitted_text.mb_chars.downcase.to_s
-    self.update_attribute(:review_date, (Date.today + 3.days))
-    return true
-   else
-    return false
-   end
+    origianl = self.translated_text.mb_chars.downcase.to_s
+    submitted = submitted_text.mb_chars.downcase.to_s
+    if original == submitted
+      self.update_attribute(:review_date, (Date.today + 3.days))
+      return true
+    else
+      return false
+    end
   end
 end
