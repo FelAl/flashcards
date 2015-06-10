@@ -1,0 +1,32 @@
+<% if flash[:no_cards] %>
+  <div class = "form-horizontal" >
+    <p>
+      <%= flash[:no_cards] %>
+    </p>
+  </div>
+<% else %>
+  <%= form_for @card, url: root_path, method: "Post", html: {class: "form-horizontal"} do |f| %>
+    <% if (params[:controller] == "main") %>
+      <h4>  Проверка </h4>
+    <% end %>
+    <p>
+      <% if flash[:notice] %>
+        <%= flash[:notice] %>
+      <% end %>
+    </p>
+    <% if (params[:controller] == "main") %>
+      <div class="form-group">
+        <div class="form-control">
+          <%= @card.original_text %>
+        </div>
+      </div>
+    <% end %>
+    <input name="card[card_id]" type="hidden" value="<%= @card.id %>" />
+    <div class="form-group">
+      <%= f.text_field :translated_text, class: "form-control", placeholder: "Введите перевод", value: "" %>
+    </div>
+    <div class="clearfix">   
+      <%= f.submit "Проверить", class: "btn btn-success pull-right" %>
+    </div>
+  <% end %>
+<% end %>
