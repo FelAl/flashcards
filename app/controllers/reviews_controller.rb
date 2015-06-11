@@ -15,12 +15,12 @@ class ReviewsController < ApplicationController
   end
 
   private
-  
+
   def review_params
     params.require(:review).permit(:card_id, :user_translation)
   end 
 
   def find_card
     @card = Card.find(review_params[:card_id])
-  end 
+  end
 end
