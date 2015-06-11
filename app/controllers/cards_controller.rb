@@ -12,6 +12,7 @@ class CardsController < ApplicationController
     if @card.update(cards_params)
       redirect_to cards_path
     else
+      flash[:notice] = "Запись не может быть сохранена"
       render "edit"
     end
   end
@@ -37,6 +38,6 @@ class CardsController < ApplicationController
 
   private
   def cards_params
-    params.require(:card).permit(:original_text, :translated_text)
+    params.require(:review).permit(:original_text, :translated_text)
   end  
 end

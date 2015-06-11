@@ -1,37 +1,29 @@
 <!--main-->
 <div class="container" id="main">
   <div class="row">
-    <div class="col-md-4 col-sm-6">
-      <div class="panel panel-default">
-        <div class="panel-heading"> 
-          <h4>Просто текст</h4>
-          <section>
-            <p>
-              Первый в мире удобный менеджер флеш-карточек. Именно так.
-            </p>
-
-          </section>
+    <% if !(params[:controller] == "reviews") %>
+      <div class="col-md-4 col-sm-6">
+        <div class="panel panel-default">
+          <div class="panel-heading"> 
+            <h4>Главная</h4>
+            <section>
+              <p>
+                Первый в мире удобный менеджер флеш-карточек. Именно так.
+              </p>
+            </section>
+          </div>
         </div>
       </div>
+    <% end %>
+    <div class="col-md-4 col-sm-6">
       <div class="well">
-        <h4> Добавить карточку</h4>
-        <%= render "cards/edit_or_new" %>
-      </div>
+        <% if current_page?(new_review_path) %>
 
-    </div>
-    <div class="col-md-4 col-sm-6">
-      <div class="panel panel-default">
-        <div class="panel-heading"> 
-          <h4>Пример карточки</h4>
-        </div>
-        <div class="panel-body">
-          <p>
-            <img src="//placehold.it/150x150" class="img-circle pull- right">
-          </p>
-          <div class="clearfix"></div>
-          <hr>
-            Название
-        </div>
+          <%= render  "cards/train_form", card: @card%>
+
+        <% else %>
+          <h4>На <%= link_to "тренировку", new_review_path %>  </h4>  
+        <% end %>
       </div>
     </div>
   </div><!--/row-->
