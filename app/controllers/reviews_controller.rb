@@ -15,6 +15,7 @@ class ReviewsController < ApplicationController
   end
 
   private
+  
   def review_params
     params.require(:review).permit(:card_id, :user_translation)
   end 
