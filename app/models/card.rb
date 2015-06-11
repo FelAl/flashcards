@@ -30,5 +30,4 @@ class Card < ActiveRecord::Base
   def prepare_tex(string)
     string.mb_chars.downcase.to_s
   end
-
 end
