@@ -1,5 +1,5 @@
 class Card < ActiveRecord::Base
-  scope :pending, -> {where("review_date <= ?", Time.now).order("RANDOM()")} 
+  scope :pending, -> { where("review_date <= ?", Time.now).order("RANDOM()") } 
 
   validates :original_text, :translated_text, :review_date,   presence: true
   validate  :check_duplication
@@ -30,7 +30,7 @@ class Card < ActiveRecord::Base
   end
 
   def card_downcase(string)
-    self.original_text.mb_chars.downcase.to_s
+    string.original_text.mb_chars.downcase.to_s
   end
 
 end
