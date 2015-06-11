@@ -2,8 +2,6 @@ class ReviewsController < ApplicationController
   before_action :find_card, only: [:create]
   def new
     @card = Card.pending.first
-    puts @card
-    puts "-----------"
     render "reviews/new"
   end
 
