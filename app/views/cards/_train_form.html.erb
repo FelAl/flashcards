@@ -8,24 +8,22 @@
 
 
 
-  <%= form_tag(reviews_path, method: "POST", class: "form-horizontal") do %>
+
+  <%= form_for :review, method: "POST",url: reviews_path, class: "form-horizontal" do |f| %>
     <h4>  Проверка </h4>
     <div class="form-group">
       <div class="form-control">
         <%= card.original_text %>
       </div>
     </div>
-    <%= hidden_field_tag 'card[card_id]',"#{card.id}"  %>
+    <%= f.hidden_field :card_id,  value: card.id %>
     <div class="form-group">
-      <%= text_field_tag 'card[translated_text]',"" ,class: "form-control", placeholder: "Введите перевод"%>
+      <%= f.text_field :user_translation, class: "form-control", placeholder: "Введите перевод", value: "" %>
     </div>
     <div class="clearfix">   
-      <%= submit_tag "Проверить", class: "btn btn-success pull-right" %>
+      <%= f.submit "Проверить", class: "btn btn-success pull-right" %>
     </div>
-
-
   <% end %>
-
 
 
 <% end %>

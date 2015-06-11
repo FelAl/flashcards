@@ -1,5 +1,8 @@
 class Card < ActiveRecord::Base
-  scope :pending, -> { where("review_date <= ?", Time.now).order("RANDOM()") } 
+  scope :pending, -> (date = (Date.today - 3.days).strftime("%d.%m.%y")) { where("review_date < '#{date}'", Time.now).order("RANDOM()") } 
+
+
+
 
   validates :original_text, :translated_text, :review_date,   presence: true
   validate  :check_duplication
@@ -19,18 +22,19 @@ class Card < ActiveRecord::Base
   end
 
   def check_translations(submitted_text)
-    original = card_downcase(self.original_text)
-    submitted = card_downcase(submitted_text)
-    if original == submitted
-      self.update_attribute(:review_date, (Date.today + 3.days))
+    puts prepare_tex(self.original_text)
+    puts prepare_tex(submitted_text)
+    puts "00000--------"
+    if prepare_tex(self.translated_text) == prepare_tex(submitted_text)
+      self.update( {review_date: (Date.today + 3.days).to_s} )
       return true
     else
       return false
     end
   end
 
-  def card_downcase(string)
-    string.original_text.mb_chars.downcase.to_s
+  def prepare_tex(string)
+    string.mb_chars.downcase.to_s
   end
 
 end

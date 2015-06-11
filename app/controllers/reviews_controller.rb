@@ -2,25 +2,26 @@ class ReviewsController < ApplicationController
   before_action :find_card, only: [:create]
   def new
     @card = Card.pending.first
-    render "main/index"
+    puts @card
+    puts "-----------"
+    render "reviews/new"
   end
 
   def create
-    if @card.check_translations(cards_params[:translated_text])
+    if @card.check_translations(review_params[:user_translation])
       flash[:notice] = "Слово #{@card.original_text} переведно верно. Молодец!"
-      redirect_to :back
     else
       flash[:notice] = "Слово '#{@card.original_text}' переведно с ошибкой. Но я в тебя верю ;)"
-      redirect_to :back
     end
+    redirect_to :back
   end
 
   private
-  def cards_params
-    params.require(:card).permit(:card_id, :translated_text)
+  def review_params
+    params.require(:review).permit(:card_id, :user_translation)
   end 
 
   def find_card
-    @card = Card.find(cards_params[:card_id])
+    @card = Card.find(review_params[:card_id])
   end 
 end
