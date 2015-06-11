@@ -20,7 +20,7 @@ class Card < ActiveRecord::Base
 
   def check_translations(submitted_text)
     if prepare_tex(self.translated_text) == prepare_tex(submitted_text)
-      self.update(review_date: (Date.today + 3.days).to_s)
+      update(review_date: (Date.today + 3.days))
       return true
     else
       return false
