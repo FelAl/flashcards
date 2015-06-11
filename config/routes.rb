@@ -3,8 +3,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
   root to: "main#index"
   resources :cards, except: [:new]
-  get "new_training", to: "reviews#new_training"
-  post "check_card",  to: "reviews#check_card"
+  resources :reviews, only: [:new, :create]
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
   # Example of regular route:

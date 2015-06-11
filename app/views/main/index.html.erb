@@ -17,12 +17,12 @@
     <% end %>
     <div class="col-md-4 col-sm-6">
       <div class="well">
-        <% if params[:controller] == "reviews" %>
+        <% if current_page?(new_review_path) %>
 
           <%= render  "cards/train_form", card: @card%>
 
         <% else %>
-          <h4>На <%= link_to "тренировку", new_training_path %>  </h4>  
+          <h4>На <%= link_to "тренировку", new_review_path %>  </h4>  
         <% end %>
       </div>
     </div>

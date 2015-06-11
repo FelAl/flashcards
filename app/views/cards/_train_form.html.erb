@@ -1,24 +1,31 @@
-<% if flash[:no_cards] %>
+<% if !card.present? %>
   <div class = "form-horizontal" >
     <p>
-      <%= flash[:no_cards] %>
+      <h4> Нет карточек </h4>
     </p>
   </div>
 <% else %>
-  <%= form_for card, url: check_card_path, method: "Post", html: {class: "form-horizontal"} do |f| %>
-      <h4>  Проверка </h4>
-      <div class="form-group">
-        <div class="form-control">
-          <%= card.original_text %>
-        </div>
-      </div>
 
-    <input name="card[card_id]" type="hidden" value="<%= @card.id %>" />
+
+
+  <%= form_tag(reviews_path, method: "POST", class: "form-horizontal") do %>
+    <h4>  Проверка </h4>
     <div class="form-group">
-      <%= f.text_field :translated_text, class: "form-control", placeholder: "Введите перевод", value: "" %>
+      <div class="form-control">
+        <%= card.original_text %>
+      </div>
+    </div>
+    <%= hidden_field_tag 'card[card_id]',"#{card.id}"  %>
+    <div class="form-group">
+      <%= text_field_tag 'card[translated_text]',"" ,class: "form-control", placeholder: "Введите перевод"%>
     </div>
     <div class="clearfix">   
-      <%= f.submit "Проверить", class: "btn btn-success pull-right" %>
+      <%= submit_tag "Проверить", class: "btn btn-success pull-right" %>
     </div>
+
+
   <% end %>
+
+
+
 <% end %>
