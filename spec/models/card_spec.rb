@@ -1,21 +1,36 @@
 require 'rails_helper'
 
 RSpec.describe Card, type: :model do
-  before(:each) do 
-    @card = Card.create(original_text:   "Door", 
-                        translated_text: "Дверь", 
-                        review_date:     "05.05.2015")
+  it "is valide with original_text, translated_text" do
+    card = Card.new(original_text:   "Door", 
+                    translated_text: "Дверь")
+    expect(card).to be_valid
   end
 
-  it "has original_text Door" do
-    expect(@card.original_text).to eq ("Door")
+  it "is invalide without original_text" do
+    card = Card.new(translated_text: "Дверь")
+    expect(card.valid?).to be_valid
   end
 
-  it "has translated_text Дверь" do
-    expect(@card.translated_text).to eq ("Дверь")
+  it "is invalide without translated_text" do
+    card = Card.new(original_text: "Door")
+    expect(card.valid?).to eq(false)
   end
 
-  it "has review_date 05.05.2015" do
-    expect(@card.review_date).to eq (Date.today + 3.days)
+  it "is invalide without translated_text and original_text" do
+    card = Card.new()
+    expect(card.valid?).to eq(false)
+  end
+
+  it "has valide review_date" do
+    card = Card.new(original_text:   "Door", 
+                    translated_text: "Дверь")
+    expect(card.review_date).to eq(Date.today + 3.days)
+  end
+
+  it "has different original_text and translated_text" do
+    card = Card.new(original_text:   "Door", 
+                    translated_text: "Door")
+    expect(card.valid?).to eq(false)
   end
 end
