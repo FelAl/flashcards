@@ -7,6 +7,7 @@ RSpec.describe Card, type: :model do
     expect(card).to be_valid
   end
 
+  #Validations
   it "is invalide without original_text" do
     card = Card.new(translated_text: "Дверь")
     expect(card.valid?).to eq(false)
@@ -57,6 +58,8 @@ RSpec.describe Card, type: :model do
     expect(Card.pending).to include(card)
   end
 
+
+  # Bounds values
   it "is include in pending list, if review_date equals #{Date.today - 4.days}" do
     card = Card.new(original_text:   "Review", 
                     translated_text: "Оценка")
@@ -66,20 +69,20 @@ RSpec.describe Card, type: :model do
     expect(Card.pending).to include(card)
   end
 
-  it "is NOT include in pending list, if review_date equals #{Date.today - 3.days}" do
+  it "is include in pending list, if review_date equals #{Date.today - 3.days}" do
     card = Card.new(original_text:   "Review", 
                     translated_text: "Оценка")
     #card.review_date == (Date.today + 3.days), after_initialize if new_record
     card.review_date = Date.today - 3.days
     card.save
-    expect(Card.pending).not_to include(card)
+    expect(Card.pending).to include(card)
   end
 
-  it "is NOT include in pending list, if review_date equals #{Date.today}" do
+  it "is NOT include in pending list, if review_date equals #{Date.today - 2.days}" do
     card = Card.new(original_text:   "Review", 
                     translated_text: "Оценка")
     #card.review_date == (Date.today + 3.days), after_initialize if new_record
-    card.review_date = Date.today
+    card.review_date = Date.today - 2.days
     card.save
     expect(Card.pending).not_to include(card)
   end
