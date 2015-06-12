@@ -1,6 +1,6 @@
  FactoryGirl.define do
   factory :card do
-    original_text   "Door"
-    translated_text "Дверь"
+    original_text   {Faker::Lorem.word}
+    translated_text {Faker::Name.name}
   end
  end

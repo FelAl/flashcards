@@ -2,17 +2,19 @@ require 'rails_helper'
 
 RSpec.describe Card, type: :model do
   it "is valide with original_text, translated_text" do
-    expect(FactoryGirl.build(:card)).to be_valid
+    puts build(:card).original_text
+    puts build(:card).translated_text
+    expect(build(:card)).to be_valid
   end
 
   describe "check validations" do
     it "is invalide without original_text" do
-      card = Card.new(translated_text: "Дверь")
+      card = build(:card, original_text: nil)
       expect(card.valid?).to eq(false)
     end
 
     it "is invalide without translated_text" do
-      card = Card.new(original_text: "Door")
+      card = build(:card, translated_text: nil)
       expect(card.valid?).to eq(false)
     end
 
@@ -22,8 +24,7 @@ RSpec.describe Card, type: :model do
     end
 
     it "has valide review_date" do
-      card = Card.new(original_text:   "Door", 
-                      translated_text: "Дверь")
+      card = build(:card)
       expect(card.review_date).to eq(Date.today + 3.days)
     end
 
@@ -42,7 +43,7 @@ RSpec.describe Card, type: :model do
 
   describe "check review date" do
     before :each do
-      @card = FactoryGirl.build(:card)
+      @card = build(:card)
     end
 
     it "is NOT include in pending list, with incorrect date" do
@@ -61,7 +62,7 @@ RSpec.describe Card, type: :model do
 
   describe "Bounds values for review_date" do
     before :each do
-      @card = FactoryGirl.build(:card)
+      @card = build(:card)
     end
 
     it "is include in pending list, if review_date equals #{Date.today - 4.days}" do
