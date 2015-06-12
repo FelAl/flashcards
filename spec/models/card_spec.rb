@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Card, type: :model do
   it "is valide with original_text, translated_text" do
@@ -19,7 +19,7 @@ RSpec.describe Card, type: :model do
     end
 
     it "is invalide with blank fields" do
-      card = Card.new()
+      card = Card.new
       expect(card.valid?).to eq(false)
     end
 
@@ -47,13 +47,13 @@ RSpec.describe Card, type: :model do
     end
 
     it "is NOT include in pending list, with incorrect date" do
-      #card.review_date == (Date.today + 3.days), after_initialize if new_record
+      # @card.review_date == (Date.today + 3.days), after_initialize if new_record
       @card.save
       expect(Card.pending).not_to include(@card)
     end
 
     it "is include in pending list, with correct date" do
-      #card.review_date == (Date.today + 3.days), after_initialize if new_record
+      # @card.review_date == (Date.today + 3.days), after_initialize if new_record
       @card.review_date = Date.today - 20.days
       @card.save
       expect(Card.pending).to include(@card)
@@ -66,21 +66,21 @@ RSpec.describe Card, type: :model do
     end
 
     it "is include in pending list, if review_date equals #{Date.today - 4.days}" do
-      #card.review_date == (Date.today + 3.days), after_initialize if new_record
+      # @card.review_date == (Date.today + 3.days), after_initialize if new_record
       @card.review_date = Date.today - 4.days
       @card.save
       expect(Card.pending).to include(@card)
     end
 
     it "is include in pending list, if review_date equals #{Date.today - 3.days}" do
-      #card.review_date == (Date.today + 3.days), after_initialize if new_record
+      # @card.review_date == (Date.today + 3.days), after_initialize if new_record
       @card.review_date = Date.today - 3.days
       @card.save
       expect(Card.pending).to include(@card)
     end
 
     it "is NOT include in pending list, if review_date equals #{Date.today - 2.days}" do
-      #card.review_date == (Date.today + 3.days), after_initialize if new_record
+      # @card.review_date == (Date.today + 3.days), after_initialize if new_record
       @card.review_date = Date.today - 2.days
       @card.save
       expect(Card.pending).not_to include(@card)
