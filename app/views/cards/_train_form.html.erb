@@ -1,0 +1,25 @@
+<% if !card.present? %>
+  <div class = "form-horizontal" >
+    <p>
+      <h4> Нет карточек </h4>
+    </p>
+  </div>
+<% else %>
+  <%= form_for :review, method: "POST",url: reviews_path, class: "form-horizontal" do |f| %>
+    <h4>  Проверка </h4>
+    <div class="form-group">
+      <div class="form-control">
+        <%= card.original_text %>
+      </div>
+    </div>
+    <%= f.hidden_field :card_id,  value: card.id %>
+    <div class="form-group">
+      <%= f.text_field :user_translation, class: "form-control", placeholder: "Введите перевод", value: "" %>
+    </div>
+    <div class="clearfix">   
+      <%= f.submit "Проверить", class: "btn btn-success pull-right" %>
+    </div>
+  <% end %>
+
+
+<% end %>
