@@ -1,10 +1,8 @@
 require "rails_helper"
 
-RSpec.describe Card, type: :model do
+describe  do
   it "is valide with original_text, translated_text" do
-    puts build(:card).original_text
-    puts build(:card).translated_text
-    expect(build(:card)).to be_valid
+    expect(build(:card, original_text: "Стул", translated_text: 'Chair')).to be_valid
   end
 
   describe "check validations" do
@@ -42,48 +40,44 @@ RSpec.describe Card, type: :model do
   end
 
   describe "check review date" do
-    before :each do
-      @card = build(:card)
-    end
+    let (:card)  { build(:card) }
 
     it "is NOT include in pending list, with incorrect date" do
       # @card.review_date == (Date.today + 3.days), after_initialize if new_record
-      @card.save
-      expect(Card.pending).not_to include(@card)
+      card.save
+      expect(Card.pending).not_to include(card)
     end
 
     it "is include in pending list, with correct date" do
       # @card.review_date == (Date.today + 3.days), after_initialize if new_record
-      @card.review_date = Date.today - 20.days
-      @card.save
-      expect(Card.pending).to include(@card)
+      card.review_date = Date.today - 20.days
+      card.save
+      expect(Card.pending).to include(card)
     end
   end
 
   describe "Bounds values for review_date" do
-    before :each do
-      @card = build(:card)
-    end
+    let (:card)  { build(:card) } 
 
     it "is include in pending list, if review_date equals #{Date.today - 4.days}" do
       # @card.review_date == (Date.today + 3.days), after_initialize if new_record
-      @card.review_date = Date.today - 4.days
-      @card.save
-      expect(Card.pending).to include(@card)
+      card.review_date = Date.today - 4.days
+      card.save
+      expect(Card.pending).to include(card)
     end
 
     it "is include in pending list, if review_date equals #{Date.today - 3.days}" do
       # @card.review_date == (Date.today + 3.days), after_initialize if new_record
-      @card.review_date = Date.today - 3.days
-      @card.save
-      expect(Card.pending).to include(@card)
+      card.review_date = Date.today - 3.days
+      card.save
+      expect(Card.pending).to include(card)
     end
 
     it "is NOT include in pending list, if review_date equals #{Date.today - 2.days}" do
       # @card.review_date == (Date.today + 3.days), after_initialize if new_record
-      @card.review_date = Date.today - 2.days
-      @card.save
-      expect(Card.pending).not_to include(@card)
+      card.review_date = Date.today - 2.days
+      card.save
+      expect(Card.pending).not_to include(card)
     end
   end
 end
