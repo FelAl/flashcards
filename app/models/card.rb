@@ -1,5 +1,6 @@
 class Card < ActiveRecord::Base
-  scope :pending, -> (date = (Date.today - 3.days).strftime("%d.%m.%y")) { where("review_date <= '#{date}'", Time.now).order("RANDOM()") } 
+  # scope :pending, -> (date = (Date.today - 3.days).strftime("%d.%m.%y")) { where("review_date <= '#{date}'", Time.now).order("RANDOM()") } 
+  scope :pending, -> { where("review_date <= ?", Time.now).order("RANDOM()") } 
 
   validates :original_text, :translated_text, :review_date,   presence: true
   validate  :check_duplication
