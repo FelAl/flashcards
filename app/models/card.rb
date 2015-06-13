@@ -5,7 +5,7 @@ class Card < ActiveRecord::Base
   validates :original_text, :translated_text, :review_date,   presence: true
   validate  :check_duplication
 
-  after_initialize :set_default_date
+  before_validation :set_default_date, on: :create
 
   def check_duplication
     downcase_original_text   = original_text.to_s.mb_chars.downcase.to_s
