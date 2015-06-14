@@ -2,12 +2,12 @@ require "rails_helper"
 
 feature "Basic training" do
   scenario "Try to learning new cards" do
-    visit "/"
+    visit root_path
 
     click_link "тренировку"
     expect(page).to have_content 'Проверка'
-    find("#review_user_translation").set "TestTest"
-    find("input[value='Проверить']").click
+    fill_in "review_user_translation", with: "TestTest"
+    click_button("Проверить")
     expect(page).to have_content 'переведено с ошибкой'
   end
 end
