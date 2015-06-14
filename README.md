@@ -1,2 +1,1 @@
-FlashCards
 [![Build Status](https://travis-ci.org/FelAl/flashcards.svg?branch=seventh_task)](https://travis-ci.org/FelAl/flashcards)
