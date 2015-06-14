@@ -1,3 +1,6 @@
 language: ruby
 rvm: 
   -  "2.2.2"
+
+before_script:
+- psql -c "CREATE USER mkdevflash WITH PASSWORD '111111';" -U postgres
