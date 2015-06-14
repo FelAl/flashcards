@@ -3,5 +3,4 @@ rvm:
   -  "2.2.2"
 
 before_script:
-- psql -c "CREATE USER mkdevflash WITH PASSWORD '111111';" -U postgres
-- psql -c 'create database mkdevtest;' -U postgres
+- cp config/database.yml.travis config/database.yml
