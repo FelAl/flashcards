@@ -5,9 +5,9 @@ feature "Basic training" do
     visit root_path
 
     click_link "тренировку"
-    expect(page).to have_content 'Проверка'
+    expect(page).to have_content "Проверка"
     fill_in "review_user_translation", with: "TestTest"
     click_button("Проверить")
-    expect(page).to have_content 'переведено с ошибкой'
+    expect(page).to have_content "переведено с ошибкой"
   end
 end
