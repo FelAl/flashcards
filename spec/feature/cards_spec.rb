@@ -4,6 +4,9 @@ feature "Basic training" do
   scenario "User can review card" do
     card = build(:card)
     card.save
+    card.review_date = Date.today
+    card.save
+
     visit root_path
 
     click_link "тренировку"
