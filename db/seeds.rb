@@ -11,6 +11,6 @@ i = 2
                   original_text:   original_text_parsed, 
                   review_date:     date)
   card.save
-  card.review_date = Date.today
-  card.save
+
+  card.update_attributes(review_date: Date.today)
 end
