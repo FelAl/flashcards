@@ -2,6 +2,7 @@ require "rails_helper"
 
 feature "Basic training" do
   scenario "User can review card" do
+    build(:card)
     visit root_path
 
     click_link "тренировку"
@@ -23,6 +24,7 @@ end
 
 feature "Editing cards" do
   scenario "Try to edit a card" do
+    build(:card)
     visit root_path
 
     click_link "Карточки"
