@@ -7,13 +7,9 @@ feature "Editing cards" do
 
     click_link "Карточки"
     click_link "Редактировать", :match => :first
-    parsed_orig_text  = find("#card_original_text").value
-    parsed_trans_text = find("#card_translated_text").value
-    orig_text_random_string  = "aba"
-    trans_text_random_string = "qwq"
 
-    fill_in "card_original_text", with: orig_text_random_string
-    fill_in "card_translated_text", with: trans_text_random_string
+    fill_in "card_original_text", with: "aba"
+    fill_in "card_translated_text", with: "qwq"
     click_button("Изменить")
     expect(page).to have_content  orig_text_random_string
     expect(page).to have_content  trans_text_random_string
