@@ -7,3 +7,11 @@ before_script:
   -  cp config/database.yml.travis config/database.yml
   -  RAILS_ENV=test rake db:migrate
 
+notifications:
+  webhooks:
+    urls:
+      - https://webhooks.gitter.im/e/2d6c2c3386add37bde9d
+    on_success: change  
+    on_failure: always  
+    on_start: false     
+
