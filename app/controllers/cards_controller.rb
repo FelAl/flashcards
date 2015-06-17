@@ -38,6 +38,6 @@ class CardsController < ApplicationController
 
   private
   def cards_params
-    params.require(:review).permit(:original_text, :translated_text)
+    params.require(:card).permit(:original_text, :translated_text)
   end  
 end

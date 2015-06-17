@@ -7,9 +7,9 @@ class ReviewsController < ApplicationController
   def create
     @card = Card.find(review_params[:card_id])
     if @card.check_translations(review_params[:user_translation])
-      flash[:notice] = "Слово #{@card.original_text} переведно верно. Молодец!"
+      flash[:notice] = "Слово #{@card.original_text} переведено верно. Молодец!"
     else
-      flash[:notice] = "Слово '#{@card.original_text}' переведно с ошибкой. Но я в тебя верю ;)"
+      flash[:notice] = "Слово '#{@card.original_text}' переведено с ошибкой. Но я в тебя верю ;)"
     end
     redirect_to :back
   end

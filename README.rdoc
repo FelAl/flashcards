@@ -1,3 +1,9 @@
 FlashCards
 
 {<img src="https://badges.gitter.im/Join%20Chat.svg" alt="Join the chat at https://gitter.im/FelAl/flashcards">}[https://gitter.im/FelAl/flashcards?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge]
+
+
+{<img src="https://travis-ci.org/FelAl/flashcards.svg?branch=seventh_task" alt="Build Status" />}[https://travis-ci.org/FelAl/flashcards]
+
+
+{<img src="https://codeclimate.com/github/FelAl/flashcards/badges/gpa.svg" />}[https://codeclimate.com/github/FelAl/flashcards]
