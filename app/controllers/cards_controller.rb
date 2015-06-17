@@ -9,8 +9,6 @@ class CardsController < ApplicationController
   end
 
   def update
-    puts params
-    puts "============="
     if @card.update(cards_params)
       redirect_to cards_path
     else
