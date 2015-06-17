@@ -11,7 +11,7 @@ feature "Editing cards" do
     fill_in "card_original_text", with: "aba"
     fill_in "card_translated_text", with: "qwq"
     click_button("Изменить")
-    expect(page).to have_content  orig_text_random_string
-    expect(page).to have_content  trans_text_random_string
+    expect(page).to have_content  "aba"
+    expect(page).to have_content  "qwq"
   end
 end
