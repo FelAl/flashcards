@@ -31,6 +31,7 @@ group :test do
   gem 'capybara'
   gem "faker"
   gem "rake"
+  gem "codeclimate-test-reporter"
 end
 
 # Use ActiveModel has_secure_password
