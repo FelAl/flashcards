@@ -1,7 +1,8 @@
 class Card < ActiveRecord::Base
+  belongs_to :user
   scope :pending, -> { where("review_date <= ?", Time.now).order("RANDOM()") } 
 
-  validates :original_text, :translated_text, :review_date,   presence: true
+  validates :original_text, :translated_text, :review_date, :user,  presence: true
   validate  :check_duplication
 
   before_validation :set_default_date, if: :new_record?
