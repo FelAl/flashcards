@@ -6,6 +6,6 @@
     <%= f.text_field :translated_text, class: "form-control" %>
   </div>
   <div class="clearfix">
-    <%= f.submit @card.new_record? ? "Создать" : "Изменить", class: "btn btn-success pull-right" %>
+    <%= f.submit card.new_record? ? "Создать" : "Изменить", class: "btn btn-success pull-right" %>
   </div>
 <% end %>
