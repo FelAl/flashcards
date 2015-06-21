@@ -10,13 +10,29 @@
     <div class="collapse navbar-collapse" id="navbar-collapse2">
     <div>
       <p>
-        <%= flash[:notice] %>
+        <p id="notice"><%= flash[:notice] %></p>
+        <p id="alert"><%= flash[:alert] %></p>
       </p>
     </div>
       <ul class="nav navbar-nav navbar-right">
         <li>
           <%= link_to "Карточки", cards_path %>
         </li>
+        <% if current_user %>
+          <li>
+            <%= link_to "Edit Profile", edit_user_path(current_user.id) %>
+          </li>
+          <li>
+            <%= link_to "Logout", :logout, method: :post %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to "Register", new_user_path %> 
+          </li>
+          <li>
+            <%= link_to "Login", :login %>
+          </li>
+          <% end %>
       </ul>
     </div>  
   </div>  
