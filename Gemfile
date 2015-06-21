@@ -33,7 +33,9 @@ group :test do
   gem "faker"
   gem "rake"
   gem "codeclimate-test-reporter"
-  gem 'database_cleaner'
+  gem "database_cleaner"
+  gem "capybara-webkit"
+  gem "selenium-webdriver"
 end
 
 # Use ActiveModel has_secure_password
