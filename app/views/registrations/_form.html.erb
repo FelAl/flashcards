@@ -26,4 +26,7 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+  <div>
+    <%= link_to 'Login with Twitter', auth_at_provider_path(:provider => :twitter) %>
+  </div>
 <% end %>
