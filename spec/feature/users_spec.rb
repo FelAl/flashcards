@@ -26,7 +26,7 @@ feature "Login and logout" do
     create(:user)
     login
     click_link "Logout"
-    expect(page).to have_content "Logged out!"
+    expect(page).to have_content "Please login first"
   end
 
   scenario "User can't login with wrong email" do
@@ -90,19 +90,6 @@ feature "User manipulations" do
     fill_in "password", with: "edit"
     click_button "Login" 
     expect(page).to have_content "Login successful"
-  end
-
-  scenario "Deleting user", js: true do
-    create :user
-    create(:user, email: "delete@mail.ru", password: "delete", password_confirmation: "delete")
-    login
-    visit "/users"
-
-    expect(page).to have_content "Listing Users"
-    expect(page).to have_content "delete@mail.ru"
-    click_link "Destroy", match: :first
-    page.driver.browser.switch_to.alert.accept
-    expect(page).to have_content "User was successfully destroyed."
   end
 end
 
