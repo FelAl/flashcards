@@ -1,7 +1,5 @@
 Rails.application.config.sorcery.submodules = [:external]
-
 Rails.application.config.sorcery.configure do |config| 
-
 
   config.external_providers = [:twitter, :facebook]
 
@@ -16,6 +14,7 @@ Rails.application.config.sorcery.configure do |config|
   config.facebook.user_info_mapping = {:email => "email", :name => "name", :username => "username", :hometown => "hometown/name"} #etc
   config.facebook.scope = "email,offline_access,user_hometown,user_interests,user_likes" #etc
   config.facebook.display = "popup"
+  
   # --- user config ---
   config.user_config do |user|
     # -- external --
