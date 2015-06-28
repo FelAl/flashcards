@@ -36,4 +36,3 @@ feature "Registration" do
     expect(page).to have_content "Logged in from Facebook!"
   end
 end
-
