@@ -33,10 +33,10 @@
             <%= link_to "Login", login_path %>
           </li>
           <li>
-            <%= link_to 'Login with Twitter', auth_at_provider_path(:provider => :twitter) %>
+            <%= link_to 'Login with Twitter', auth_at_provider_path(provider: :twitter) %>
           </li>
           <li>
-            <%= link_to 'Login with Facebook', auth_at_provider_path(:provider => :facebook) %>
+            <%= link_to 'Login with Facebook', auth_at_provider_path(provider: :facebook) %>
           </li>
           <% end %>
       </ul>
