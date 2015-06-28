@@ -25,7 +25,6 @@ feature "Registration" do
     expect(page).to have_content "Logged in from Twitter!"
   end
 
-
   scenario "User can login via facebook", js: true do
     visit root_path
     click_link "Login with Facebook"
