@@ -82,7 +82,7 @@ feature "User manipulations" do
     fill_in "Email", with: "edit@mail.ru"
     fill_in "Password", with: "edit"
     fill_in "Password confirmation", with: "edit"
-    click_button "Update User"
+    click_button "Save Profile"
     expect(page).to have_content "User was successfully updated."
     click_link "Logout"
     visit root_path
