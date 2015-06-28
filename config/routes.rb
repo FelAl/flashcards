@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   post "oauth/callback" => "oauths#callback"
   get "oauth/callback" => "oauths#callback" # for use with Github, Facebook
   get "oauth/:provider" => "oauths#oauth", as: :auth_at_provider
-  # get "edit_profile", to: "profile#edit"
 
   resource :profile, only: [:show, :edit, :update, :destroy]
 
