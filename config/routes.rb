@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   get "login" => "user_sessions#new", as: :login
   delete "logout" => "user_sessions#destroy", as: :logout
 
