@@ -18,4 +18,14 @@ feature "User manipulations" do
     click_button "Login" 
     expect(page).to have_content "Login successful"
   end
+
+  scenario "User can see his email" do
+    create :user
+    login
+    click_link "Edit Profile"
+    click_link "Show"
+
+    expect(page).to have_content "Email"
+    expect(page).to have_content "mail@mail.ru"
+  end
 end

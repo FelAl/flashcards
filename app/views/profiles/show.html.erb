@@ -7,11 +7,11 @@
 
         <p>
           <strong>Email:</strong>
-          <%= @user.email %>
+          <%= current_user.email %>
         </p>
 
         <%= link_to 'Edit', edit_profile_path %> |
-        <%= link_to 'Back', users_path %>
+        <%= link_to 'Back', root_path %>
 
       </div>
     </div>

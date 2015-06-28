@@ -14,5 +14,4 @@ Rails.application.routes.draw do
   resources :cards, except: [:new]
   resources :reviews, only: [:new, :create]
   resources :registrations, only: [:new, :create]
-  # resources :profile, only: [:show, :edit, :update, :destroy]
 end

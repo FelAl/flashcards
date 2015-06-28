@@ -14,7 +14,7 @@ feature "Registration" do
     expect(page).to have_content "Logout"
   end
 
-  scenario "User can login via twitter", js: true do
+  scenario "User can register via twitter", js: true do
     visit root_path
     click_link "Login with Twitter"
 
@@ -25,7 +25,7 @@ feature "Registration" do
     expect(page).to have_content "Logged in from Twitter!"
   end
 
-  scenario "User can login via facebook", js: true do
+  scenario "User can register via facebook", js: true do
     visit root_path
     click_link "Login with Facebook"
 

@@ -7,20 +7,16 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if @current_user.update(user_params)
-        format.html { redirect_to root_path, notice: 'User was successfully updated.' }
-      else
-        format.html { render :edit }
-      end
+    if @current_user.update(user_params)
+      redirect_to root_path, notice: 'User was successfully updated.'
+    else
+      render :edit 
     end
   end
 
   def destroy
     @user.destroy
-    respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
-    end
+    redirect_to users_url, notice: 'User was successfully destroyed.' 
   end
 
   private
