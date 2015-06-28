@@ -7,6 +7,8 @@ require "capybara/rails"
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 ActiveRecord::Migration.maintain_test_schema!
 
+Capybara.app_host = "http://0.0.0.0:3000"
+
 def login
   visit root_path
   fill_in "email", with: "mail@mail.ru"
