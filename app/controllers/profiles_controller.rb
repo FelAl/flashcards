@@ -6,16 +6,11 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    if @current_user.update(user_params)
+    if current_user.update(user_params)
       redirect_to root_path, notice: "User was successfully updated."
     else
       render :edit
     end
-  end
-
-  def destroy
-    @user.destroy
-    redirect_to users_url, notice: "User was successfully destroyed."
   end
 
   private

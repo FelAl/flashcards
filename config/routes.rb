@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get "login" => "user_sessions#new", as: :login
-  delete "logout" => "user_sessions#destroy", as: :logout
+  get "login" => "user_sessions#new"
+  delete "logout" => "user_sessions#destroy"
 
   post "oauth/callback" => "oauths#callback"
   get "oauth/callback" => "oauths#callback" # for use with Github, Facebook
