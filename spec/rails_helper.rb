@@ -13,7 +13,7 @@ def login
   visit root_path
   fill_in "email", with: "mail@mail.ru"
   fill_in "password", with: "secret"
-  click_button "Login"  
+  click_button "Login"
 end
 
 RSpec.configure do |config|
