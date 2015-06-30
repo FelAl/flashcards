@@ -24,7 +24,7 @@ class CardsController < ApplicationController
     else
       flash[:notice] = "Запись не может быть сохранена"
       redirect_to root_path
-    end  
+    end
   end
 
   def destroy
@@ -37,7 +37,8 @@ class CardsController < ApplicationController
   end
 
   private
+
   def cards_params
     params.require(:card).permit(:original_text, :translated_text)
-  end  
+  end
 end
