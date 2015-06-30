@@ -4,7 +4,7 @@ feature "Basic training" do
   scenario "User can view OK result when answers right" do
     card = create(:card, original_text: "Дом", translated_text: "House")
     card.update_attributes(review_date: Date.today)
-    visit root_path
+    login
 
     click_link "тренировку"
     fill_in "review_user_translation", with: "House"
@@ -15,7 +15,7 @@ feature "Basic training" do
   scenario "User can view Fault result when answers wrong" do
     card = create(:card)
     card.update_attributes(review_date: Date.today)
-    visit root_path
+    login
 
     click_link "тренировку"
     fill_in "review_user_translation", with: "TestTest"
@@ -26,13 +26,12 @@ feature "Basic training" do
   scenario "check case sensitivity" do
     card = create(:card, original_text: "Дом", translated_text: "House")
     card.update_attributes(review_date: Date.today)
-    visit root_path
+    login
 
     click_link "тренировку"
     fill_in "review_user_translation", with: "houSE"
     click_button("Проверить")
     expect(page).to have_content "переведено верно"
   end
-
 end
 

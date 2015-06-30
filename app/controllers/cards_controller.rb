@@ -2,7 +2,7 @@ class CardsController < ApplicationController
   before_action :find_card, only: [:edit, :update, :destroy]
 
   def index
-    @cards = Card.all
+    @cards = current_user.cards
   end
 
   def edit
@@ -24,7 +24,7 @@ class CardsController < ApplicationController
     else
       flash[:notice] = "Запись не может быть сохранена"
       redirect_to root_path
-    end  
+    end
   end
 
   def destroy
@@ -33,11 +33,12 @@ class CardsController < ApplicationController
   end
 
   def find_card
-    @card = Card.find(params[:id])
+    @card = current_user.cards.find(params[:id])
   end
 
   private
+
   def cards_params
     params.require(:card).permit(:original_text, :translated_text)
-  end  
+  end
 end

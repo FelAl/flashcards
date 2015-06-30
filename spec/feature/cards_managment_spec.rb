@@ -3,8 +3,7 @@ require "rails_helper"
 feature "Editing cards" do
   scenario "Try to edit a card" do
     create(:card)
-    visit root_path
-
+    login
     click_link "Карточки"
     click_link "Редактировать", match: :first
 
@@ -19,8 +18,7 @@ end
 feature "I see all cards" do
   scenario "Go on all cards page" do
     create(:card)
-    visit root_path
-    
+    login
     click_link "Карточки"
     expect(page).to have_content "Редактировать"
     expect(page).to have_content "Удалить"
