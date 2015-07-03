@@ -7,3 +7,5 @@ FlashCards
 {<img src="https://codeclimate.com/github/FelAl/flashcards/badges/gpa.svg" />}[https://codeclimate.com/github/FelAl/flashcards]
 
 {<img src="https://codeclimate.com/github/FelAl/flashcards/badges/coverage.svg" />}[https://codeclimate.com/github/FelAl/flashcards/coverage]
+
+{<img src="https://gemnasium.com/FelAl/flashcards.svg" alt="Dependency Status" />}[https://gemnasium.com/FelAl/flashcards]
