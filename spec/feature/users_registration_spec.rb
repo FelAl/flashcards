@@ -18,8 +18,8 @@ feature "Registration" do
     visit root_path
     click_link "Login with Twitter"
 
-    fill_in "session[username_or_email]", with: Rails.application.secrets.twitter_login
-    fill_in "session[password]", with: Rails.application.secrets.twitter_pass
+    fill_in "session[username_or_email]", with: ENV["TWITTER_LOGIN"]
+    fill_in "session[password]", with: ENV["TWITTER_PASSWORD"]
     click_button "Sign In"
 
     expect(page).to have_content "Logged in from Twitter!"
@@ -29,8 +29,8 @@ feature "Registration" do
     visit root_path
     click_link "Login with Facebook"
 
-    fill_in "email", with: Rails.application.secrets.facebook_login
-    fill_in "pass", with: Rails.application.secrets.facebook_pass
+    fill_in "email", with: ENV["FACEBOOK_LOGIN"]
+    fill_in "pass", with: ENV["FACEBOOK_PASSWORD"]
     click_button "Log In"
 
     expect(page).to have_content "Logged in from Facebook!"

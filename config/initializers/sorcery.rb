@@ -2,8 +2,8 @@ Rails.application.config.sorcery.submodules = [:external]
 Rails.application.config.sorcery.configure do |config|
   config.external_providers = [:twitter, :facebook]
 
-  config.twitter.key          = Rails.application.secrets.twitter_key
-  config.twitter.secret       = Rails.application.secrets.twitter_secret
+  config.twitter.key          = ENV["TWITTER_KEY"]
+  config.twitter.secret       = ENV["TWITTER_SECRET"]
   # config.twitter.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=twitter"
   if ENV["RAILS_ENV"] == "development" || ENV["RAILS_ENV"] == "test"
     app_url = "http://0.0.0.0:3000"
@@ -13,8 +13,8 @@ Rails.application.config.sorcery.configure do |config|
   config.twitter.callback_url = app_url + "/oauth/callback?provider=twitter"
   config.twitter.user_info_mapping = { email: "screen_name" }
 
-  config.facebook.key =          Rails.application.secrets.facebook_key
-  config.facebook.secret =       Rails.application.secrets.facebook_secret
+  config.facebook.key =     ENV["FACEBOOK_KEY"]
+  config.facebook.secret =  ENV["FACEBOOK_SECRET"]
   # config.facebook.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=facebook"
   if ENV["RAILS_ENV"] == "development" || ENV["RAILS_ENV"] == "test"
     app_url = "http://0.0.0.0:3000"
