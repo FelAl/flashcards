@@ -3,7 +3,8 @@ require "rails_helper"
 describe  do
   it "is valide with original_text, translated_text" do
     expect(build(:card, original_text: "Стул",
-                        translated_text: "Chair")).to be_valid
+                        translated_text: "Chair",
+                        image_card: File.open("default_img.jpg"))).to be_valid
   end
 
   describe "check validations" do
@@ -16,6 +17,12 @@ describe  do
       card = build(:card, translated_text: nil)
       expect(card.valid?).to eq(false)
     end
+
+    it "is invalide without image_card" do
+      card = build(:card, image_card: nil)
+      expect(card.valid?).to eq(false)
+    end
+
 
     it "is invalide with blank fields" do
       card = Card.new

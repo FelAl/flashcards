@@ -5,6 +5,9 @@
   <div class="form-group">
     <%= f.text_field :translated_text, class: "form-control" %>
   </div>
+  <div class="form-group">
+    <%= f.file_field :image_card, class: "form-control" %>
+  </div>
   <div class="clearfix">
     <%= f.submit card.new_record? ? "Создать" : "Изменить", class: "btn btn-success pull-right" %>
   </div>

@@ -13,6 +13,7 @@ gem "sdoc", "~> 0.4.0", group: :doc
 gem "nokogiri", "~> 1.6.6.2"
 gem "sorcery"
 gem "omniauth-twitter"
+gem "carrierwave"
 
 group :test do
   gem "rspec-rails", "~> 3.0"

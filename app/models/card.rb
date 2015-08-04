@@ -1,8 +1,12 @@
 class Card < ActiveRecord::Base
+  mount_uploader :image_card, CardImageUploader
   belongs_to :user
-  scope :pending, -> { where("review_date <= ?", Time.now).order("RANDOM()") } 
+  scope :pending, -> { where("review_date <= ?", Time.now).order("RANDOM()") }
 
-  validates :original_text, :translated_text, :review_date, :user,  presence: true
+  validates :original_text, :translated_text,
+            :review_date, :user,
+            :image_card, presence: true
+
   validate  :check_duplication
 
   before_validation :set_default_date, if: :new_record?
